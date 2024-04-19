@@ -1,0 +1,92 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+.search{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 20px;
+    overflow: hidden;
+    z-index: 10;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.search #text{
+    width: 75%;
+    font-size: 20px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    border-radius: 50px;
+    outline: none;
+    border: 1px solid #cfcfcfe7;
+}
+.search .search-suggestions{
+    line-height: 0;
+    padding-block: .5px;
+    padding-inline: 18px;
+    text-align: left;
+    font-size: 19px;
+    background: white;
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 6px;
+    visibility: hidden;
+    height: 0;
+}
+.active-search-suggestion{
+    height: auto !important;
+    visibility: visible !important;
+}
+.overlay{
+    visibility: hidden;
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000000de;
+    width: 100%;
+    height: 100%;
+}
+.active-overlay{
+    visibility: visible;
+}
+.card{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 12px;
+    flex-wrap: wrap;
+}
+.main{
+    background: #e2e2e2e7;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 4px .2px;
+}
+.img-holder{
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    height: 180px;
+    border-bottom: 1.5px solid;
+}
+.img-holder img{
+    width: 100%;
+    height: 100%;
+    object-position: center;
+}
+.text-holder{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.text-holder :where(h1, p){
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5px;
+}
