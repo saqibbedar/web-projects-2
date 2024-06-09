@@ -23,22 +23,28 @@ function addToCartCards(){
                     </div>
                 </div>
         `
-        document.querySelector(".cards").innerHTML = clutter;
-    })
+    });
+    document.querySelector(".cards").innerHTML = clutter;
 }
 
-function addToCart(){
+let cartItemCount = 0;
 
-    // adding clicked itmes to cart array
+function addToCart(){
+    // adding clicked items to cart array
     document.querySelector(".cards").addEventListener("click", (dets)=>{
+    cartItemCount++;
+    document.documentElement.style.setProperty('--cart-item-count', `'${cartItemCount}'`);
+
         if(dets.target.classList.contains("add-cart-opt")){
             cart.push(arr[dets.target.dataset.index]);
+            console.log(cart);
         }
     })
 
     // open the cart when cart is clicked
     document.querySelector(".open-cart-icon").addEventListener("click", ()=>{
         document.querySelector(".cart").classList.add("active-cart");
+
         // close cart
         document.querySelector(".close").addEventListener("click", function(){
             document.querySelector(".cart").classList.remove("active-cart");
@@ -47,36 +53,40 @@ function addToCart(){
         // setting clutter to hold data
         let clutter = ""; 
 
-        // extrating data from cart array to insert into html using forEach()
-        cart.forEach((product)=>{ 
+        // extracting data from cart array to insert into html using forEach()
+        cart.forEach((product, index)=>{ 
             clutter += `
-            <div class="cart-content">
-            <div class="cart-img-handler">
-            <img src="${product.img}" alt="">
-            </div>
-            <div class="cart-text">
+            <div class="cart-content" id="${index}">
+                <div class="cart-img-handler">
+                    <img src="${product.img}" alt="">
+                </div>
+                <div class="cart-text">
                     <h1>${product.title}</h1>
                     <p>${product.des}</p>
                     <div class="view-delete-items">
                         <p class="view-item">View item</p>
-                        <p class="remove-item">Delete item</p>
+                        <p data-index="${index}" class="remove-item">Delete item</p>
                     </div>
                 </div>
             </div>
-            </div>
             `;
+        });
 
-            // insert html to main element
-            document.querySelector(".main-cart").innerHTML = clutter;
+        // insert HTML into main element
+        document.querySelector(".main-cart").innerHTML = clutter;
 
-            // document.querySelector(".main-cart").addEventListener("click", function(dets){
-            //     if(dets.target.classList.contains("remove-item")){
-            //         console.log("hello")
-            //         // cart.pop(arr[dets.target.dataset.index]);
-            //     }
-            // })
-        })
-
+        // adding event listener to remove items from the cart
+        document.querySelectorAll(".remove-item").forEach(item => {
+            item.addEventListener("click", (dets)=>{
+                cartItemCount--;
+                document.documentElement.style.setProperty('--cart-item-count', `'${cartItemCount}'`);
+                let indexToRemove = dets.target.dataset.index;
+                cart.splice(indexToRemove, 1);
+                console.log(cart);
+                // re-render the cart
+                document.querySelector(".open-cart-icon").click();
+            });
+        });
     })
 }
 

@@ -13,7 +13,9 @@ html, body{
 a {
     text-decoration: none;
 }
-
+:root{
+    --cart-item-count: '0';
+}
 header{
     position: fixed;
     top: 0;
@@ -46,7 +48,7 @@ header > .add-cart-icon::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    content: '0';
+    content: var(--cart-item-count);
     position: absolute;
     background: red;
     font-size: 10px;
