@@ -1,8 +1,5 @@
 let arr = [
-    {songTitle: "Sabni khy Kharaendr aahy Allah...", artistName: "Bedar Buxal", coverImg: "./src/images/IMG-20201205-WA0029.jpg", songUrl: "./src/audio/baxshal.MP3"},
-    {songTitle: "Mokhy b mehbob ghurayo...", artistName: "Bedar Buxal", coverImg: "./src/images/IMG-20201205-WA0026.jpg", songUrl: "./src/audio/bukhshal.MP3"},
-    {songTitle: "Piyo Madiny nihar ton...", artistName: "Bedar Buxal", coverImg: "./src/images/IMG-20201205-WA0035.jpg", songUrl: "./src/audio/REC00014.MP3"},
-    {songTitle: "Halo Madiny halon...", artistName: "Bedar Buxal", coverImg: "./src/images/FB_IMG_1593229684033.jpg", songUrl: "./src/audio/REC00025.MP3"},
+    {songTitle: "Sochta Hoon Ke woh Kitne Masoom Thay", artistName: "NFAK", coverImg: "https://images.genius.com/2865831b5aac4db5f8a3a628f79464a2.682x682x1.jpg", songUrl: "https://soundcloud.com/sameerbansal6060/sochta-hoon-ke-woh-kitne?in=zamsumpk/sets/nusrat-fateh-ali&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"},
 ];
 
 // selectors
