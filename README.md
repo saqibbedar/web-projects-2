@@ -12,7 +12,7 @@ Welcome to the Web Development Projects 2 Collection! This repository is a colle
 | 4. | Music Player | [Preview →](https://saqibbedar.github.io/web-projects-2/music-player/index.html) |
 | 5. | Upload Image | [Preview →](https://saqibbedar.github.io/web-projects-2/upload-img/index.html) |
 | 6. | Dark Mode | [Preview →](https://saqibbedar.github.io/web-projects-2/DarkMode/index.html) |
-| 6. | Calculator | [Preview →](https://saqibbedar.github.io/web-projects-2/blob/main/Calculator/index.html) |
+| 6. | Calculator | [Preview →](https://saqibbedar.github.io/web-projects-2/Calculator/index.html) |
 
 ## Getting Started
 
