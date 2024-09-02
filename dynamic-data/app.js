@@ -1,7 +1,7 @@
 let arr = [
-    {heading : "Hello there!", subHeading: "Fantastic design is here...", price : "20", img : "Design .png"},
-    {heading : "Hello there!", subHeading: "Fantastic design is here...", price : "20", img : "Design MS- Store.png"},
-    {heading : "Hello there!", subHeading: "Fantastic design is here...", price : "20", img : "Screenshot 2022-08-10 085254.png"}
+    {heading : "Hello, world!", subHeading: "lorem ipsum dollar emit...", price : "20", img : "https://blog-frontend.envato.com/cdn-cgi/image/width=2560,quality=75,format=auto/uploads/sites/2/2022/04/E-commerce-App-JPG-File-scaled.jpg"},
+    {heading : "Hello, world!", subHeading: "lorem ipsum dollar emit...", price : "20", img : "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/ecommerce%20marketing.jpg?width=893&height=600&name=ecommerce%20marketing.jpg"},
+    {heading : "Hello, world!", subHeading: "lorem ipsum dollar emit...", price : "20", img : "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2022/08/Image_-_E-Commerce_Website_.jpeg.jpg"}
 ]
 
 function Card(){
@@ -31,7 +31,6 @@ function handleSearch(){
 
     input.addEventListener("focus", ()=>{
         overlay.classList.add("active-overlay");
-        suggestion.classList.add("active-search-suggestion");
     })
     input.addEventListener("blur", ()=>{
         overlay.classList.remove("active-overlay");
@@ -39,6 +38,7 @@ function handleSearch(){
     })
     input.addEventListener("input", ()=>{
         let clutter = "";
+        suggestion.classList.add("active-search-suggestion");
         const filterArray = arr.filter(obj => obj.heading.toLocaleLowerCase().startsWith(input.value));
         filterArray.forEach(obj =>{
             clutter += `<p>${obj.heading}</p>`

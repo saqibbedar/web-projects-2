@@ -57,24 +57,23 @@ body{
 }
 .card{
     display: flex;
-    /* flex-direction: column; */
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
     align-items: center;
     margin: 12px;
     flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 .main{
-    background: #e2e2e2e7;
+    background: #ffffffe7;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 4px .2px;
+    box-shadow: 0 0 7px rgb(229, 229, 229);
 }
 .img-holder{
     aspect-ratio: 16/9;
     overflow: hidden;
     height: 180px;
-    border-bottom: 1.5px solid;
 }
 .img-holder img{
     width: 100%;
