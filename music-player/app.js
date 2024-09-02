@@ -1,5 +1,5 @@
 let arr = [
-    {songTitle: "Sochta Hoon Ke woh Kitne Masoom Thay", artistName: "NFAK", coverImg: "https://images.genius.com/2865831b5aac4db5f8a3a628f79464a2.682x682x1.jpg", songUrl: "https://soundcloud.com/sameerbansal6060/sochta-hoon-ke-woh-kitne?in=zamsumpk/sets/nusrat-fateh-ali&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"},
+    {songTitle: "Ye Jo Halka Halka", artistName: "NFAK", coverImg: "https://images.genius.com/2865831b5aac4db5f8a3a628f79464a2.682x682x1.jpg", songUrl: "https://audiofoc.bajao.pk/bajaostrm/320/46173.mp3?m=0&mp3=.mp3&startTime=1725287798&endTime=1725303998&token=vBGmD_kqcS5y-8vPG7-bH_XqSl4CceY5fUrZTXX78gA="},
 ];
 
 // selectors
