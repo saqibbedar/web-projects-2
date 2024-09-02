@@ -15,7 +15,9 @@ html, body{
 a {
     text-decoration: none;
 }
-
+:root{
+    --progress: 0px;
+}
 .main{
     width: 100%;
     height: 80%;
@@ -27,11 +29,21 @@ a {
 .main > .left{
     width: 40%;
     background: #434343;
-    /* background-image: url(./src/images/IMG-20201205-WA0026.jpg); */
     background-position: center;
     overflow: hidden;
     border-radius: 8px;
     background-size: cover;
+    position: relative;
+}
+.current-song-playing{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-weight: 500;
+    letter-spacing: .8px;
+    background: linear-gradient(180deg, #0000, #000000);
+    padding: 10px 0;
 }
 .main > .right{
     width: 60%;
@@ -60,6 +72,7 @@ a {
 .img-handler img{
     width: 100%;
     height: 100%;
+    border-radius: 6px;
     object-fit: cover; 
     object-position: center;
 }
@@ -68,9 +81,9 @@ a {
     position: relative;
 }
 .right > h1{
-    width: 46.7%;
+    width: 47%;
     font-size: 30px;
-    backdrop-filter: blur(1px);
+    background-color: rgb(36, 36, 36);
     position: fixed;
     padding: 12px;
 }
@@ -79,8 +92,8 @@ a {
     padding: 10px 0;
 }
 .song-list{
-    border-top: 1px solid rgba(255, 255, 255, 0.327);
-    padding: 20px 10px;
+    border-top: 1px solid #4e4e4e;
+    padding: 15px 10px 15px 10px !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,7 +101,7 @@ a {
     cursor: pointer;
 }
 .song-list:last-child{
-    border-bottom: 1px solid rgba(255, 255, 255, 0.327);
+    border-bottom: 1px solid #575757;
 }
 .song-list:hover{
     background: #434343;
@@ -112,6 +125,19 @@ a {
     justify-content: center;
     align-items: center;
     gap: 12px;
+    position: relative;
+}
+.controllers::before{
+    content: '';
+    width: var(--progress, 0%);
+    background-color: springgreen;
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    z-index: 10;
+    cursor: pointer;
 }
 .backward svg, .play svg, .forward svg{
     cursor: pointer;
@@ -150,7 +176,7 @@ a {
     }
     .right > h1{
         width: 86%;
-        font-size: 25px;
+        font-size: 30px;
         padding: 12px 1px;
     }
     .dynamic-data-handler{

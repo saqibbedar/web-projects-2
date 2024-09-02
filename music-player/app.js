@@ -20,6 +20,13 @@ let audio = new Audio();
 let playingSong = 0;
 let isPlay = false;
 
+audio.addEventListener("timeupdate", ()=>{
+    if (audio.duration) {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        document.documentElement.style.setProperty('--progress', `${progress}%`);
+    }
+})
+
 function main(){
     let clutter = "";
 
@@ -41,21 +48,57 @@ function main(){
 
     dynamicDataHandler.innerHTML = clutter;
     audio.src = arr[playingSong].songUrl;
-    console.log(audio.src)
     document.querySelector(".left").style.backgroundImage = `url(${arr[playingSong].coverImg})`;
+    document.querySelector(".current-song-playing").innerHTML = arr[playingSong].songTitle;
+    let songList = document.querySelectorAll(".song-list")
+    songList[playingSong].style.background = "#434343";
+    
 }
-main(); 
+main();  
+
+forward.addEventListener("click", ()=>{
+    if(playingSong < arr.length - 1){
+        isPlay = true;
+        playingSong++;
+        play.innerHTML = `<svg height="100%" viewBox="0 0 36 36" width="100%"><path d="M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z" id="ytp-id-117"></path></svg>`;
+        main();
+        audio.play();
+    }
+    else{
+        isPlay = true;
+        playingSong = 0;
+        main();
+        audio.play();
+    }
+})
+
+backward.addEventListener("click", ()=>{
+    if(playingSong > 0){
+        isPlay = true;
+        playingSong--;
+        play.innerHTML = `<svg height="100%" viewBox="0 0 36 36" width="100%"><path d="M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z" id="ytp-id-117"></path></svg>`;
+        main();
+        audio.play();
+    }else{
+        isPlay = true;
+        playingSong = arr.length -1;
+        main(); 
+        audio.play();
+        play.innerHTML = `<svg height="100%" viewBox="0 0 36 36" width="100%"><path d="M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z" id="ytp-id-117"></path></svg>`;
+        console.log(playingSong)
+    }
+});
 
 dynamicDataHandler.addEventListener("click", (dets)=>{
-    playingSong = dets.target.id;
+    playingSong = dets.target.closest('.song-list').id; // dets.target.id
+    isPlay = true;  
     play.innerHTML = `<svg height="100%" viewBox="0 0 36 36" width="100%"><path d="M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z" id="ytp-id-117"></path></svg>`;
-    isPlay = true;
     main();
     audio.play(); 
 })
 
 play.addEventListener("click", ()=>{
-    if(isPlay != true){
+    if(!isPlay){
         play.innerHTML = `<svg height="100%" viewBox="0 0 36 36" width="100%"><path d="M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z" id="ytp-id-117"></path></svg>`;
         main();
         audio.play();  
@@ -67,26 +110,4 @@ play.addEventListener("click", ()=>{
         isPlay = false;
     }
 
-}) 
-
-forward.addEventListener("click", ()=>{
-    if(playingSong < arr.length - 1){
-        playingSong++;
-        main();
-        audio.play();
-    }
-    else{
-        // forward.style.display = "none"
-    }
-})
-
-backward.addEventListener("click", ()=>{
-    if(playingSong > 0){
-        playingSong++;
-        main();
-        audio.play();
-    }
-    else{
-        forward.style.display = "none"
-    }
 })
